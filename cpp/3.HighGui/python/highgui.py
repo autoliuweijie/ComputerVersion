@@ -4,6 +4,7 @@
     @date: 2016-03-24
 """
 from cv2 import *
+from numpy import *
 
 
 class Example(object):
@@ -16,6 +17,7 @@ class Example(object):
 
     @classmethod
     def inputShowOutputImage(cls):
+
         srcImage = imread("../../0.StaticSource/images/google.png", 1)
         namedWindow("Image")
         imshow("Image", srcImage)
@@ -32,9 +34,11 @@ class Example(object):
 
     @classmethod
     def onChange(cls, value):
+
         alpha = float(getTrackbarPos("merge rate", "Merge Image")) / cls.MAX_SLIDER_VALUE
         dstImage = addWeighted(cls.saberImage, alpha, cls.backgroundImage, 1.0 - alpha, 0.0)
         imshow("Merge Image", dstImage)
+
 
 if __name__ == "__main__":
     # Example.inputShowOutputImage()

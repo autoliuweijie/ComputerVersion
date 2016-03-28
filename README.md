@@ -25,10 +25,6 @@ ComputerVision
         python **.py
 
 
-##Part1: 快速上手OpenCV
-
-###[1. Chapter1 Introduction ](./1.Introduction/)
-
 
 
 
