@@ -129,7 +129,6 @@ class Example(object):
 
         cv.waitKey(0)
 
-
     @classmethod
     def find_convexity_defects(cls):
         # get contours
@@ -155,25 +154,39 @@ class Example(object):
         cv.waitKey(0)
         cv.destroyAllWindows()
 
+    @classmethod
+    def point_polygon_test(cls):
+        # get contour
+        hand_img = cv.imread("../lib/images/hand.png", 0)
+        ret, hand_thre = cv.threshold(hand_img, 0, 255, cv.THRESH_BINARY_INV + cv.THRESH_OTSU)
+        hand_contours_img, hand_contours, hierarchy = cv.findContours(hand_thre, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+        contour = max(hand_contours, key=cv.contourArea)
 
+        dist = cv.pointPolygonTest(contour, (50, 50), True)
+        print dist
 
+    @classmethod
+    def match_shape(cls):
+        stars_img = cv.imread("../lib/images/stars.png", 0)
+        ret, stars_img_thre = cv.threshold(stars_img, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+        contours_img, stars_contours, hierarchy = cv.findContours(stars_img_thre, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+        stars_contours = sorted(stars_contours, key=cv.contourArea, reverse=True)[0: 3]
 
+        contours_num = len(stars_contours)
+        similarity_matrix = np.zeros((contours_num, contours_num), np.float16)
+        for i in range(contours_num):
+            for j in range(contours_num):
+                similarity_matrix[i, j] = cv.matchShapes(stars_contours[i], stars_contours[j], 1, 0.0)
 
-
-
-
-
-
-
-
-
+        print "similarity:", similarity_matrix
 
 
 if __name__ == "__main__":
     # Example.test_contout()
     # Example.contour_properties()
-    Example.find_convexity_defects()
-
+    # Example.find_convexity_defects()
+    # Example.point_polygon_test()
+    Example.match_shape()
 
 
 
