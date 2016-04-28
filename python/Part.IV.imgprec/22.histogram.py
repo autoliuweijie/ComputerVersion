@@ -41,11 +41,11 @@ class Example(object):
 
     @classmethod
     def test_CLAHE(cls):
-        img = cv.imread('../lib/images/saber.jpg', 0)
+        img = cv.imread('../lib/images/liuweijie2.jpg', 0)
         clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
         img_clahe = clahe.apply(img)
         res = np.hstack((img, img_clahe))
-        plt.subplot(1, 1, 1), plt.imshow(res, cmap='gray')
+        plt.subplot(1, 1, 1), plt.imshow(res[:,:,::-1], cmap='gray')
         plt.show()
 
 
@@ -84,10 +84,11 @@ class Example2D(object):
         plt.subplot(111), plt.imshow(res[:, :, ::-1])
         plt.show()
 
+
 if __name__ == "__main__":
     # Example.test_calcHist()
     # Example.test_calcHist2()
     # Example.test_equalizeHist()
-    # Example.test_CLAHE()
+    Example.test_CLAHE()
     # Example2D.draw_hv2d_histogram()
-    Example2D.hist_back_project()
+    # Example2D.hist_back_project()
