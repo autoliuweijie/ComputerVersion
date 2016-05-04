@@ -8,6 +8,7 @@ class Example(object):
 
     @classmethod
     def test_brief_description(cls):
+
         img = cv.imread("../lib/images/saber.jpg", 1)
         img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 

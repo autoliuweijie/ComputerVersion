@@ -55,7 +55,6 @@ int main(int argc, char** argv) {
     waitKey(0); 
 }
 
-
 void Example::mergeImage() {
 
     cout << "this is mergeImage" << endl;
