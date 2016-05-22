@@ -8,8 +8,8 @@ class Example(object):
 
     @classmethod
     def match_template(cls):
-        img = cv.imread('../lib/images/faces.jpg', 0)
-        template = cv.imread('../lib/images/face.png', 0)
+        img = cv.imread('../lib/images/bigheroback.png', 0)
+        template = cv.imread('../lib/images/bighero.png', 0)
 
         # cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR',
         # 'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED'
@@ -41,5 +41,5 @@ class Example(object):
 
 
 if __name__ == "__main__":
-    # Example.match_template()
-    Example.match_template2()
+    Example.match_template()
+    # Example.match_template2()

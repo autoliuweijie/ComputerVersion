@@ -89,6 +89,6 @@ if __name__ == "__main__":
     # Example.test_calcHist()
     # Example.test_calcHist2()
     # Example.test_equalizeHist()
-    Example.test_CLAHE()
-    # Example2D.draw_hv2d_histogram()
+    # Example.test_CLAHE()
+    Example2D.draw_hv2d_histogram()
     # Example2D.hist_back_project()
