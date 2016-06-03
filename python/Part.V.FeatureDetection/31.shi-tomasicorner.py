@@ -19,5 +19,6 @@ class Example(object):
         cv.waitKey(0)
         cv.destroyAllWindows()
 
+
 if __name__ == "__main__":
     Example.test_tomasi_corner()
